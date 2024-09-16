@@ -6,11 +6,6 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<div>
-    <form action="/init" method="post">
-        <input type="submit" value="Input sample data" />
-    </form>
-</div>
 <br />
 
 <div>
@@ -51,7 +46,7 @@
                         @Html.DisplayFor(model => room.Status)
                     </td>
                     <td>
-                        @Html.ActionLink("Delete", "RemoveRoom", "Rooms", new { id = room.Id })
+                        @Html.ActionLink("Delete", "RemoveRoom", "Rooms", new { roomId = room.Id })
                     </td>
                 </tr>
             }
@@ -59,9 +54,14 @@
     </table>
 </div>
 
+<br />
+<br />
+
 <div>
     <form action="/rooms/add" method="post" class="small">
         <div class="grid-container">
+            <label for="id">ID:</label>
+            <input id="id" type="number" name="id" />
             <label for="name">Name:</label>
             <input id="name" type="text" name="name" />
             <label for="status">Status:</label>

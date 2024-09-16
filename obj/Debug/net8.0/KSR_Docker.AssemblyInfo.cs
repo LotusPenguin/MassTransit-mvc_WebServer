@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KSR_Docker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6282220e655690cba604dd042e5308826e229e35")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+569a7dc7374db6c9563b64fb051ffd122bc48790")]
 [assembly: System.Reflection.AssemblyProductAttribute("KSR_Docker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KSR_Docker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

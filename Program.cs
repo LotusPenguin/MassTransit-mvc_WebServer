@@ -2,6 +2,7 @@ using MassTransit.AspNetCoreIntegration;
 using MassTransit;
 using KSR_Docker.Models.Consumers;
 using KSR_Docker.Models.QueryClasses;
+using KSR_Docker.Models.CommandClasses;
 using MassTransit.Transports;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,8 @@ builder.Services.AddMassTransit( x =>
 {    
     x.AddConsumer<RoomsConsumer>().Endpoint(e => e.Name = "queryqueue");
     x.AddRequestClient<RoomsQuery>();
+    x.AddRequestClient<RoomUpdateCommand>();
+    x.AddRequestClient<RoomDeleteCommand>();
 
     x.UsingRabbitMq((context, cfg) =>
     {
