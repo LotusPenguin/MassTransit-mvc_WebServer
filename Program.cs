@@ -2,6 +2,7 @@ using MassTransit.AspNetCoreIntegration;
 using MassTransit;
 using KSR_Docker.Models.Consumers;
 using KSR_Docker.Models.QueryClasses;
+using MassTransit.Transports;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddMassTransit( x =>
 {    
+    x.AddConsumer<RoomsConsumer>().Endpoint(e => e.Name = "queryqueue");
+    x.AddRequestClient<RoomsQuery>();
+
     x.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host(new Uri("rabbitmq://cow.rmq2.cloudamqp.com/uklfscur"), h =>
@@ -17,10 +21,9 @@ builder.Services.AddMassTransit( x =>
             h.Username("uklfscur");
             h.Password("l-2PHIXrRbG2lreh61yvypU6sx4dPGoi");
         });
-    });
 
-    x.AddConsumer<RoomsConsumer>();
-    x.AddRequestClient<RoomsQuery>();
+        cfg.ConfigureEndpoints(context);
+    });
 });
 
 var app = builder.Build();

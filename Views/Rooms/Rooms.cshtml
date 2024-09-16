@@ -39,19 +39,19 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(model => room.RoomId)
+                        @Html.DisplayFor(model => room.Id)
                     </td>
                     <td>
                         @Html.DisplayFor(model => room.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(model => room.RoomType)
+                        @Html.DisplayFor(model => room.TypeId)
                     </td>
                     <td>
                         @Html.DisplayFor(model => room.Status)
                     </td>
                     <td>
-                        @Html.ActionLink("Delete", "RemoveRoom", "Home", new { id = room.RoomId })
+                        @Html.ActionLink("Delete", "RemoveRoom", "Rooms", new { id = room.Id })
                     </td>
                 </tr>
             }

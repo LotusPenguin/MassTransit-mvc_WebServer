@@ -6,16 +6,16 @@
 
         public string Status { get; set; }
 
-        public int RoomId { get; set; }
+        public int Id { get; set; }
 
-        public int RoomType { get; set; }
+        public int TypeId { get; set; }
 
-        public Room(string name, string status, int roomType, int roomId)
+        public Room(int roomId, string name, int roomType, string status)
         {
             Name = name;
             Status = status;
-            RoomId = roomId;
-            RoomType = roomType;
+            Id = roomId;
+            TypeId = roomType;
         }
     }
 }

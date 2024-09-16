@@ -38,3 +38,5 @@ C:\Users\Pingwin\source\repos\KSR_Docker\bin\Debug\net8.0\RabbitMQ.Client.dll
 C:\Users\Pingwin\source\repos\KSR_Docker\bin\Debug\net8.0\MessageTypes.dll
 C:\Users\Pingwin\source\repos\KSR_Docker\bin\Debug\net8.0\MessageTypes.pdb
 C:\Users\Pingwin\source\repos\KSR_Docker\obj\Debug\net8.0\KSR_Docker.csproj.Up2Date
+C:\Users\Pingwin\source\repos\KSR_Docker\obj\Debug\net8.0\KSR_Docker.sourcelink.json
+C:\Users\Pingwin\source\repos\KSR_Docker\bin\Debug\net8.0\Newtonsoft.Json.dll

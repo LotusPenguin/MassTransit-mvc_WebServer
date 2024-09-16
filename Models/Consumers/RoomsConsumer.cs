@@ -7,7 +7,7 @@ namespace KSR_Docker.Models.Consumers
     {
         public Task Consume(ConsumeContext<IRoomsResponse> context)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }

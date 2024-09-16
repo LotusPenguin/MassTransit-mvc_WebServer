@@ -1,4 +1,5 @@
 ﻿using KSR_Docker.Models.Models;
+using KSR_Docker.Models.Errors;
 using KSR_Docker.Models.QueryClasses;
 using KSR_Docker.Models.Repositories;
 using MassTransit;
@@ -9,15 +10,18 @@ using MessageTypes;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
+using System.Text.Json.Serialization;
+using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace KSR_Docker.Controllers
 {
-    public class RoomsController
+    public class RoomsController : Controller
     {
-        private static RoomsController Instance;
+        //private static RoomsController Instance;
         //private static HandlerClass ResponseHandler;
         private static int TimeoutMs = 5000;
-        private ISendEndpoint SendEndpoint { get; set; }
+        //private ISendEndpoint SendEndpoint { get; set; }
 
         //private RoomRepository RoomRepository;
 
@@ -33,7 +37,7 @@ namespace KSR_Docker.Controllers
         //    return Instance;
         //}
 
-        private RoomsController(IRequestClient<RoomsQuery> client)
+        public RoomsController(IRequestClient<RoomsQuery> client)
         {
             _client = client;
             //RoomRepository = RoomRepository.GetInstance();
@@ -89,22 +93,51 @@ namespace KSR_Docker.Controllers
         //    RoomRepository.Init();
         //}
 
-        public async Task<IActionResult> GetRooms()
+        [HttpPost]
+        [Route("/init")]
+        public ActionResult InitRepository()
         {
-            //throw new NotImplementedException();
-            //TODO
-            var response = await _client.GetResponse<IRoomsResponse>(new RoomsQuery());
-            return Ok((List<Room>)response.Message.Message);
+            return RedirectToAction("Rooms", "Rooms");
         }
 
-        public void AddRoom(string name, string status, int roomType)
+        [HttpGet]
+        [Route("rooms/list")]
+        public async Task<IActionResult> Rooms()
         {
             //TODO
+            var request = _client.Create(new RoomsQuery());
+            var response = await request.GetResponse<IRoomsResponse>();
+            List<Room>? rooms = new List<Room>();
+
+            Console.WriteLine(response.Message.Text);
+            
+            if(response.Message.Text != null)
+            {
+                rooms = JsonConvert.DeserializeObject<List<Room>>(response.Message.Text);
+            }
+            return View(rooms);
         }
 
-        public void RemoveRoom(int roomId)
+        //public ActionResult Rooms()
+        //{
+        //    //List<Room> rooms = AdminService.GetRooms().Result;
+        //    return View();
+        //}
+
+        [HttpGet]
+        [Route("/rooms/add")]
+        public ActionResult AddRoom(string name, string status, int roomType)
         {
             //TODO
+            return RedirectToAction("Rooms");
+        }
+
+        [HttpGet]
+        [Route("rooms/delete/{id}")]
+        public ActionResult RemoveRoom(int roomId)
+        {
+            //TODO
+            return RedirectToAction("Rooms");
         }
     }
 }

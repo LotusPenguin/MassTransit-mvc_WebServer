@@ -24,11 +24,11 @@ namespace KSR_Docker.Models.Repositories
             Rooms = new List<Room>();
         }
 
-        public void Init()
-        {
-            Room temp = new Room("A1", "wolny", 1, 1);
-            Rooms.Add(temp);
-        }
+        //public void Init()
+        //{
+        //    Room temp = new Room();
+        //    Rooms.Add(temp);
+        //}
 
         public List<Room> GetRooms()
         {
@@ -39,7 +39,7 @@ namespace KSR_Docker.Models.Repositories
         public void Add(string name, string status, int roomType)
         {
             idCounter += 1;
-            Rooms.Add(new Room(name, status, roomType, idCounter));
+            Rooms.Add(new Room(idCounter, name, roomType, status));
         }
 
         public void Remove(int roomId)
@@ -47,7 +47,7 @@ namespace KSR_Docker.Models.Repositories
             //todo: send remove request
             try
             {
-                Rooms.Remove(Rooms.Find(x => x.RoomId == roomId));
+                Rooms.Remove(Rooms.Find(x => x.Id == roomId));
             }
             catch (Exception ex)
             {

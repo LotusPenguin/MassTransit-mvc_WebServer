@@ -11,7 +11,7 @@ namespace KSR_Docker.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        IRequestClient<RoomsQuery> _roomsQuery;
+        //IRequestClient<RoomsQuery> _roomsQuery;
         //private RoomsController AdminService;
 
         public HomeController(ILogger<HomeController> logger)
@@ -25,37 +25,29 @@ namespace KSR_Docker.Controllers
             return View();
         }
 
-        [HttpPost]
-        [Route("/init")]
-        public ActionResult InitRepository()
-        {
-            //AdminService.InitRepository();
-            return RedirectToAction("Rooms");
-        }
+        //[HttpGet]
+        //[Route("rooms/list")]
+        //public ActionResult Rooms()
+        //{
+        //    List<Room> rooms = AdminService.GetRooms().Result;
+        //    return View(rooms);
+        //}
 
-        [HttpGet]
-        [Route("rooms/list")]
-        public ActionResult Rooms()
-        {
-            List<Room> rooms = AdminService.GetRooms().Result;
-            return View(rooms);
-        }
+        //[HttpPost]
+        //[Route("/rooms/add")]
+        //public ActionResult AddRoom(string name, string status, int roomType)
+        //{
+        //    //AdminService.AddRoom(name, status, roomType);
+        //    return RedirectToAction("Rooms");
+        //}
 
-        [HttpPost]
-        [Route("/rooms/add")]
-        public ActionResult AddRoom(string name, string status, int roomType)
-        {
-            //AdminService.AddRoom(name, status, roomType);
-            return RedirectToAction("Rooms");
-        }
-
-        [HttpGet]
-        [Route("rooms/delete/{id}")]
-        public ActionResult RemoveRoom(int id)
-        {
-            //AdminService.RemoveRoom(id);
-            return RedirectToAction("Rooms");
-        }
+        //[HttpGet]
+        //[Route("rooms/delete/{id}")]
+        //public ActionResult RemoveRoom(int id)
+        //{
+        //    //AdminService.RemoveRoom(id);
+        //    return RedirectToAction("Rooms");
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
