@@ -1,0 +1,74 @@
+﻿@model IEnumerable<KSR_Docker.Models.Models.Room>
+
+@{
+    ViewData["Title"] = "Rooms";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <form action="/init" method="post">
+        <input type="submit" value="Input sample data" />
+    </form>
+</div>
+<br />
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Type
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Options
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var room in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => room.RoomId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => room.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => room.RoomType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => room.Status)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "RemoveRoom", "Home", new { id = room.RoomId })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <form action="/rooms/add" method="post" class="small">
+        <div class="grid-container">
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="name" />
+            <label for="status">Status:</label>
+            <input id="status" type="text" name="status" />
+            <label for="roomType">Type:</label>
+            <input id="roomType" type="number" name="roomType" />
+        </div>
+        <input type="submit" value="Add room" />
+    </form>
+</div>

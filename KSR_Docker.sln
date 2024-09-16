@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSR_Docker", "KSR_Docker.csproj", "{2C95BE3D-F26A-45A1-BA6C-385013F5724C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageTypes", "..\MessageTypes\MessageTypes.csproj", "{82531AF5-9553-4F24-83C6-0F7BE4F5D016}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C95BE3D-F26A-45A1-BA6C-385013F5724C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C95BE3D-F26A-45A1-BA6C-385013F5724C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C95BE3D-F26A-45A1-BA6C-385013F5724C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C95BE3D-F26A-45A1-BA6C-385013F5724C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82531AF5-9553-4F24-83C6-0F7BE4F5D016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82531AF5-9553-4F24-83C6-0F7BE4F5D016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82531AF5-9553-4F24-83C6-0F7BE4F5D016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82531AF5-9553-4F24-83C6-0F7BE4F5D016}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41F936EB-9814-4DB0-86ED-BF6F36BC4988}
+	EndGlobalSection
+EndGlobal
